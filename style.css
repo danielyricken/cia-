@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Variáveis de Cores Harmoniosas (Sage & Olive Green)
+   ========================================================================== */
+:root {
+    --bg-color: #f4f6f4;
+    --card-color: #ffffff;
+    --primary-color: #3b5343;       /* Verde Oliva Profundo */
+    --primary-hover: #2c3f32;       /* Verde Oliva Escuro */
+    --primary-light: #e8ece9;       /* Fundo Verde Sálvia Claro */
+    --accent-color: #607d67;        /* Verde Sálvia Médio */
+    --text-color: #212922;          /* Grafite Escuro */
+    --text-muted: #68746a;          /* Cinza Esverdeado */
+    --border-color: #ced6d0;
+    --error-color: #ba4343;         /* Vermelho Terracota */
+    --success-color: #437053;       /* Verde Conclusão */
+    --shadow: 0 12px 34px rgba(43, 56, 46, 0.06);
+}
+
+/* ==========================================================================
+   Reset e Configurações Globais
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* ==========================================================================
+   Container Principal
+   ========================================================================== */
+.container {
+    background-color: var(--card-color);
+    width: 100%;
+    max-width: 520px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.subtitulo {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Contador de Cadastros */
+.contador-cadastros {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+.contador-cadastros strong {
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Formulários e Inputs
+   ========================================================================== */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input::placeholder, 
+textarea::placeholder {
+    color: #a0aaa2;
+}
+
+/* Estados de Foco */
+input:focus, 
+select:focus, 
+textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(96, 125, 103, 0.15);
+}
+
+/* Inputs de Opção (Radio) */
+.radio-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    accent-color: var(--accent-color);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Caixa de Seleção (Checkbox) */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.checkbox-container input {
+    accent-color: var(--accent-color);
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Contadores, Erros e Validações
+   ========================================================================== */
+#contador-caracteres {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.erro-mensagem {
+    color: var(--error-color);
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+    min-height: 16px;
+}
+
+.input-invalido {
+    border-color: var(--error-color) !important;
+    background-color: #fffbfb;
+}
+
+/* Animação de Erro (Shake) */
+.tremer {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(4px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+    40%, 60% { transform: translate3d(6px, 0, 0); }
+}
+
+/* ==========================================================================
+   Botão de Envio
+   ========================================================================== */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(59, 83, 67, 0.15);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 6px 18px rgba(59, 83, 67, 0.25);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+/* ==========================================================================
+   Modal de Sucesso
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 41, 34, 0.4);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 34px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: entradaModal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes entradaModal {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background-color: var(--primary-light);
+    color: var(--success-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 16px auto;
+}
+
+.modal h2 {
+    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.modal p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+#btn-fechar-modal {
+    width: 100%;
+    padding: 11px;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+#btn-fechar-modal:hover {
+    background-color: #dae2dc;
+}
+
+/* ==========================================================================
+   Responsividade Mobile
+   ========================================================================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 24px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
