@@ -3,120 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Contato</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilo.css">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones externos para um visual mais profissional -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
+    <div class="counter-box">
+        <i class="fa-solid fa-users"></i>
+        <span>Total de Contatos: <strong id="total-contatos">0</strong></span>
+    </div>
+
     <div class="container">
-        <header class="form-header">
-            <h1>Fale Conosco</h1>
-            <p class="subtitulo">Preencha o formulário abaixo para entrar em contato.</p>
-        </header>
-        
-        <div class="contador-cadastros">
-            <svg xmlns="http://w3.org" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            <span>Total de contatos cadastrados: <strong id="total-contatos">0</strong></span>
-        </div>
+        <h2><i class="fa-regular fa-envelope"></i> Entre em Contato</h2>
+        <p class="subtitle">Preencha os campos abaixo para nos enviar uma mensagem.</p>
 
         <form id="form-contato" novalidate>
-            <!-- 1. Nome -->
+            
             <div class="input-group">
-                <label for="nome">Nome Completo *</label>
-                <input type="text" id="nome" required placeholder="Digite seu nome completo">
-                <span class="erro-mensagem"></span>
-            </div>
-
-            <!-- 2. E-mail -->
-            <div class="input-group">
-                <label for="email">E-mail *</label>
-                <input type="email" id="email" required placeholder="seuemail@exemplo.com">
-                <span class="erro-mensagem"></span>
-            </div>
-
-            <!-- 3. Telefone -->
-            <div class="input-group">
-                <label for="telefone">Telefone *</label>
-                <input type="tel" id="telefone" required placeholder="(00) 00000-0000" maxlength="15">
-                <span class="erro-mensagem"></span>
-            </div>
-
-            <!-- 4. Data de Nascimento -->
-            <div class="input-group">
-                <label for="data-nasc">Data de Nascimento *</label>
-                <input type="date" id="data-nasc" required>
-                <span class="erro-mensagem"></span>
-            </div>
-
-            <!-- 5. Assunto -->
-            <div class="input-group">
-                <label for="assunto">Assunto Principal *</label>
-                <div class="select-wrapper">
-                    <select id="assunto" required>
-                        <option value="" disabled selected>Selecione um assunto...</option>
-                        <option value="suporte">Suporte Técnico</option>
-                        <option value="comercial">Dúvidas Comerciais</option>
-                        <option value="sugestao">Sugestões ou Elogios</option>
-                    </select>
+                <label for="nome">Nome Completo</label>
+                <div class="input-icon-wrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="nome" placeholder="Digite seu nome">
                 </div>
                 <span class="erro-mensagem"></span>
             </div>
 
-            <!-- 6. Preferência de Contato -->
-            <div class="input-group">
-                <label>Como prefere ser respondido? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="preferencia" value="Email" checked>
-                        <span>E-mail</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="preferencia" value="WhatsApp">
-                        <span>WhatsApp</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="preferencia" value="Ligacao">
-                        <span>Ligação</span>
-                    </label>
+            <div class="grid-2-col">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="seu.email@exemplo.com">
+                    </div>
+                    <span class="erro-mensagem"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone">Telefone (Celular)</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    <span class="erro-mensagem"></span>
                 </div>
             </div>
 
-            <!-- 7. Mensagem -->
-            <div class="input-group">
-                <div class="label-container">
-                    <label for="mensagem">Sua Mensagem *</label>
-                    <span id="contador-caracteres">0 / 500</span>
+            <div class="grid-2-col">
+                <div class="input-group">
+                    <label for="data-nasc">Data de Nascimento</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="date" id="data-nasc">
+                    </div>
+                    <span class="erro-mensagem"></span>
                 </div>
-                <textarea id="mensagem" rows="4" maxlength="500" required placeholder="Escreva sua mensagem aqui..."></textarea>
+
+                <div class="input-group">
+                    <label for="assunto">Assunto</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fa-solid fa-list-check"></i>
+                        <select id="assunto">
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="suporte">Suporte Técnico</option>
+                            <option value="comercial">Comercial / Vendas</option>
+                            <option value="sugestao">Sugestões / Críticas</option>
+                        </select>
+                    </div>
+                    <span class="erro-mensagem"></span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="mensagem">Mensagem</label>
+                    <span id="contador-caracteres" class="char-counter">0 / 500</span>
+                </div>
+                <textarea id="mensagem" rows="4" maxlength="500" placeholder="Como podemos te ajudar?"></textarea>
                 <span class="erro-mensagem"></span>
             </div>
 
-            <!-- 8. Termos de Privacidade -->
             <div class="input-group checkbox-group">
                 <label class="checkbox-container">
-                    <input type="checkbox" id="termos" required>
+                    <input type="checkbox" id="termos">
                     <span class="checkmark"></span>
-                    <span class="checkbox-text">Aceito os termos de uso e políticas de privacidade. *</span>
+                    <span>Li e aceito os <a href="#">termos de privacidade</a>.</span>
                 </label>
                 <span class="erro-mensagem"></span>
             </div>
 
-            <button type="submit" id="btn-enviar">Enviar Mensagem</button>
+            <button type="submit" class="btn-submit">
+                <span>Enviar Mensagem</span>
+                <i class="fa-regular fa-paper-plane"></i>
+            </button>
         </form>
     </div>
 
-    <!-- Janela Modal de Sucesso -->
-    <div id="modal-sucesso" class="modal">
-        <div class="modal-content">
-            <div class="modal-icon-wrapper">
-                <svg xmlns="http://w3.org" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <!-- Modal de Sucesso -->
+    <div id="modal-sucesso" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h2>Sucesso!</h2>
-            <p>Seus dados foram salvos com sucesso no sistema.</p>
-            <button id="btn-fechar-modal">Fechar</button>
+            <h3>Sucesso!</h3>
+            <p>Sua mensagem foi enviada e armazenada com sucesso.</p>
+            <button id="btn-fechar-modal" class="btn-modal">Fechar</button>
         </div>
     </div>
 

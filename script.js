@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     atualizarContadorGlobal();
 
-    // Formatação do Telefone em tempo real
+    // Formatação do Telefone em tempo real (Celular padrão brasileiro: (XX) XXXXX-XXXX)
     inputTelefone.addEventListener("input", (e) => {
         let valor = e.target.value.replace(/\D/g, "");
         if (valor.length > 11) valor = valor.substring(0, 11);
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contadorCaracteres.textContent = `${e.target.value.length} / 500`;
     });
 
-    // Evento de Submit com Validações Limpas
+    // Evento de Submit com Validações
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         limparTodosErros();
@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Validar E-mail
         const email = document.getElementById("email");
-        const emailRegex = /^[^\s@]+Box@[^\s@]+\.[^\s@]+$/; // Fallback seguro abaixo caso necessário
         const emailRegexValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email.value.trim()) {
             mostrarErro(email, "O campo e-mail é obrigatório.");
@@ -109,6 +108,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnFecharModal.addEventListener("click", () => {
         modalSucesso.style.display = "none";
+    });
+
+    // Remove a classe de erro dinamicamente assim que o usuário digita/altera algo
+    form.querySelectorAll("input, textarea, select").forEach(elemento => {
+        elemento.addEventListener("input", () => {
+            elemento.classList.remove("input-invalido");
+            const containerPai = elemento.closest(".input-group");
+            if (containerPai) {
+                const spanErro = containerPai.querySelector(".erro-mensagem");
+                if (spanErro) spanErro.textContent = "";
+            }
+        });
     });
 
     // Funções Utilitárias Modulares
